@@ -1,3 +1,6 @@
+import SearchBar from "./SearcBar"
+import { useState } from "react";
+
 export default function NavBar(){
     return(
         <div style={{
@@ -13,19 +16,20 @@ export default function NavBar(){
 }
 
 function Search(){
+    const [showSearchBar, setshowSearchBar] = useState(false)
+
+    function arrowForSearchBar(){
+        setshowSearchBar(false)
+    }
+    
     return(
         <div>
-            <span onClick={(e) =>{
-                
-            }}><ion-icon name="search-outline"></ion-icon></span>
-
-            <div className="searchBar" style={{
-                backgroundColor: 'red',
-                width: '170px',
-                height: '30px',
-                borderRadius: '5px',
-            }}></div>
-
+            <span onClick={() =>{
+                setshowSearchBar(true)
+            }}>
+                <ion-icon name="search-outline"></ion-icon>
+            </span>
+            <SearchBar searchBarDisplay={showSearchBar} arrowSearchBar={arrowForSearchBar}/>
         </div>
     )
 }

@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  width: 600px;
+  margin: auto;
+  position: relative
 }
 
 .App-logo {
@@ -26,6 +29,15 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.newNote{
+  position: fixed;
+  bottom: 20px;
+  right: calc(50% - 320px);
+  transform: translateX(-50%);
+  cursor: pointer;
+  background-color: white
 }
 
 @keyframes App-logo-spin {
