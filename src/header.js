@@ -1,25 +1,35 @@
 import { useState, useRef } from "react";
 
-export let funckToUpdateNotesNumber ;
+export let increaseNotesNumber ;
+export let decreaseNotesNumber ;
 
 export default function Title() {
 
   // useState
-  const [numberOfNotes, setNumberOfNotes]  =useState(0)
+  const [numberOfNotes, setNumberOfNotes]  = useState(0)
 
   // useRef
-  let funckNotesNumberRef = useRef(null)
+  let increaseNotesNumberRef = useRef(null)
+  let decreaseNotesNumberRef = useRef(null)
 
   // function to update number of notes on click
-  const updateNumberOfNotes = function(){
+  const increaseNumberOfNotes = function(){
     setNumberOfNotes(n => n + 1)
+  }
+  const decreaseNumberOfNotes = function(){
+    setNumberOfNotes(n => n - 1)
   }
 
   // using useRef to link the function with the variable that will be exported
-  funckNotesNumberRef.current = updateNumberOfNotes
+  increaseNotesNumberRef.current = increaseNumberOfNotes
+  decreaseNotesNumberRef.current = decreaseNumberOfNotes
 
-  funckToUpdateNotesNumber = () =>{
-    funckNotesNumberRef.current?.()
+  increaseNotesNumber = () =>{
+    increaseNotesNumberRef.current?.()
+  }
+
+  decreaseNotesNumber = () =>{
+    decreaseNotesNumberRef.current?.()
   }
 
   return (
