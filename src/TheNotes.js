@@ -1,48 +1,69 @@
 import { useState } from 'react';
 
-import { increaseNotesNumber } from './header';
-import { decreaseNotesNumber } from './header';
+import { increaseNotesNumberRef } from './header';
+import { decreaseNotesNumberRef } from './header';
 
 export default function TheNotes(){
 
     // useState
     const [addNewNote, setAddNewNote] = useState([])
+    const [showNotePage, setShowNotePage] = useState(false)
+    const [noteInputValue, setNoteInputValue] = useState('')
 
     // function to handle click new note
-    function handleCreateNewNote(){
-        setAddNewNote([...addNewNote, {id: Date.now()}]); // we should store data in the state not JSX
+    function CreateNewNote(){
+        setAddNewNote([...addNewNote, {id: Date.now(), value: noteInputValue}]); // we should store data in the state not JSX
 
-        increaseNotesNumber();
-        decreaseNotesNumber();
+        increaseNotesNumberRef();
+        setShowNotePage(false)
+        setNoteInputValue('')
     }
 
     const theNotes = addNewNote.map((note) =>{
-        return <NewNote ID={note.id} key={note.id} deleteNote={() =>handleDeleteNote(note.id)}/>
+        return <NewNote 
+            ID= {note.id}
+            key= {note.id}
+            deleteNote= {() =>DeleteNote(note.id)}
+            noteValue= {note.value}
+        />
     })
 
     // function to handle delete note
-    function handleDeleteNote(Id){
+    function DeleteNote(Id){
         const arrToHandleState = [...addNewNote];
         const filteredArray = arrToHandleState.filter(note => note.id !== Id) // filter returns a new arr
 
         setAddNewNote(filteredArray)
+        decreaseNotesNumberRef();
     }
 
     return(
-        <div className='newNotePage'>
+        <div className='theNotePage'>
 
             {theNotes}
 
-            <div className='newNoteBtn' onClick={handleCreateNewNote}>New Note</div>
+            <div className='notePage' style={{display: showNotePage? 'block' : 'none'}}>
+
+                <textarea className='noteTextArea' value={noteInputValue} onChange={(e) =>{
+                    setNoteInputValue(e.target.value)
+                }}></textarea>
+
+                <div className='notePageBtn' onClick={CreateNewNote}>
+                    Craete Note
+                </div>
+
+            </div>
+
+            <div className='newNoteBtn' onClick={() => setShowNotePage(true)}>New Note</div>
         </div>
     )
 }
 
-export function NewNote({deleteNote, ID}){
+export function NewNote({deleteNote, ID, noteValue}){
     return(
         <div>
             {/* key is ONLY for React lists — never put it on a button. */}
-            new note is created {ID}
+            {noteValue}
 
             <button style={{marginLeft: '10px'}} onClick={() => deleteNote(ID)}>delete</button>
         </div>

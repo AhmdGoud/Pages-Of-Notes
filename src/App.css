@@ -31,6 +31,7 @@
   color: #61dafb;
 }
 
+/* my-style */
 .newNoteBtn{
   position: fixed;
   bottom: 20px;
@@ -39,13 +40,36 @@
   cursor: pointer;
   background-color: white
 }
-.newNotePage{
-  background-color:tomato;
+.theNotePage{
+  background-color:#3e8ce6;
   border-radius: 5px;
   width: 100%;
   height: 100vh;
   margin-bottom: 20px;
+  position: relative;
 }
+.notePage{
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  top: 10px;
+  left: 15%;
+}
+.notePageBtn{
+  position: absolute;
+  bottom: 0;
+  right: 5px;
+  color: black;
+  cursor: pointer;
+}
+.noteTextArea{
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+  outline: none;
+  border-radius: 5px;
+}
+
 
 @keyframes App-logo-spin {
   from {

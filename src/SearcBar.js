@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 export default function SearchBar({searchBarDisplay, arrowSearchBar}){
     // styling
     const searchBarStyel = {
-        backgroundColor: 'tomato',
+        backgroundColor: '#3e8ce6',
         width: '470px',
         height: '30px',
         borderRadius: '5px',

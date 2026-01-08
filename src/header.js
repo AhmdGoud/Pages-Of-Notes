@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 
-export let increaseNotesNumber ;
-export let decreaseNotesNumber ;
+export let increaseNotesNumberRef ; 
+export let decreaseNotesNumberRef ;
 
 export default function Title() {
 
@@ -9,8 +9,8 @@ export default function Title() {
   const [numberOfNotes, setNumberOfNotes]  = useState(0)
 
   // useRef
-  let increaseNotesNumberRef = useRef(null)
-  let decreaseNotesNumberRef = useRef(null)
+  increaseNotesNumberRef = useRef(null)
+  decreaseNotesNumberRef = useRef(null)
 
   // function to update number of notes on click
   const increaseNumberOfNotes = function(){
@@ -21,16 +21,9 @@ export default function Title() {
   }
 
   // using useRef to link the function with the variable that will be exported
-  increaseNotesNumberRef.current = increaseNumberOfNotes
-  decreaseNotesNumberRef.current = decreaseNumberOfNotes
+  increaseNotesNumberRef = increaseNumberOfNotes
+  decreaseNotesNumberRef = decreaseNumberOfNotes
 
-  increaseNotesNumber = () =>{
-    increaseNotesNumberRef.current?.()
-  }
-
-  decreaseNotesNumber = () =>{
-    decreaseNotesNumberRef.current?.()
-  }
 
   return (
     <div>

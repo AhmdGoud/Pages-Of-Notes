@@ -16,7 +16,6 @@ function App() {
       <NavBar />
       <TheNotes />
 
-      
     </div>
   );
 }
