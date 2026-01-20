@@ -1,28 +1,23 @@
 // import logo from './logo.svg';
-import './App.css';
+import "./App.css";
 
-import Title from './header'
-import NavBar from './navbar'
-import TheNotes from './TheNotes'
-
-
+import TodoList from "./MyComps/TodoListApp";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
-
   return (
-    <div className="App">
-
-      <Title />
-      <NavBar />
-      <TheNotes />
-
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <TodoList />
+      </div>
+    </BrowserRouter>
   );
 }
 
 export default App;
 
 // Important Note => // React only re-renders when state or props change
+// state and props can't updated by mutating
 
 // The Problem:
 // affecting is a regular variable, not React state

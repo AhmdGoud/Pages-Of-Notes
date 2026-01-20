@@ -2,7 +2,7 @@
   text-align: center;
   width: 600px;
   margin: auto;
-  position: relative
+  position: relative;
 }
 
 .App-logo {
@@ -31,46 +31,6 @@
   color: #61dafb;
 }
 
-/* my-style */
-.newNoteBtn{
-  position: fixed;
-  bottom: 20px;
-  right: calc(50% - 320px);
-  transform: translateX(-50%);
-  cursor: pointer;
-  background-color: white
-}
-.theNotePage{
-  background-color:#3e8ce6;
-  border-radius: 5px;
-  width: 100%;
-  height: 100vh;
-  margin-bottom: 20px;
-  position: relative;
-}
-.notePage{
-  width: 400px;
-  height: 400px;
-  position: absolute;
-  top: 10px;
-  left: 15%;
-}
-.notePageBtn{
-  position: absolute;
-  bottom: 0;
-  right: 5px;
-  color: black;
-  cursor: pointer;
-}
-.noteTextArea{
-  width: 100%;
-  height: 100%;
-  padding: 5px;
-  outline: none;
-  border-radius: 5px;
-}
-
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -78,4 +38,67 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* my-style */
+.todolist {
+  background-color: #282c34;
+  color: whitesmoke;
+  width: 100%;
+  margin: auto;
+  padding: 20px;
+}
+.navbar {
+  width: 50%;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  padding-left: 0;
+}
+li {
+  list-style-type: none;
+  cursor: pointer;
+  color: wheat;
+}
+
+/* .nav-link {
+  text-decoration: none;
+} */
+
+.theOutlet {
+  margin: 20px 0;
+  min-height: 100px;
+}
+
+.addFeature {
+  display: flex;
+  width: 50%;
+  margin: 30px auto;
+}
+.addBtn {
+  cursor: pointer;
+  background-color: black;
+  padding: 0 3px;
+}
+input {
+  margin-left: 10px;
+  width: 180px;
+  outline: none;
+  border: none;
+  padding: 3px 8px;
+}
+
+.thenote {
+  display: flex;
+  background-color: #1d1d1f;
+  padding: 5px;
+  margin-top: 10px;
+}
+.thenote ul {
+  display: flex;
+  margin-left: auto;
+  gap: 5px;
+}
+.thenote ul li:hover {
+  background-color: black;
 }
